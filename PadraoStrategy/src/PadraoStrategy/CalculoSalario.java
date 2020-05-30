@@ -1,5 +1,5 @@
 package PadraoStrategy;
 
 public interface CalculoSalario {
-	double calculaSalario(Funcionario umFuncionario);
+	String calculaSalario(Funcionario funcionario);
 }

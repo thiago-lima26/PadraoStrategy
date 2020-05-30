@@ -1,27 +1,21 @@
 package PadraoStrategy;
 
-import java.text.DecimalFormat;
-
 public class Principal {
 
 	public static void main(String[] args) {
-		DecimalFormat f = new DecimalFormat("0.00");
-		
-		System.out.println("Cargo\t\t Salário Bruto \t Salário Líquido");
-		
-		//Funcionário1 recebe 15% a mais - esse adicional depende do cargo de cada um 
-		Funcionario funcionario1 = new Funcionario(Funcionario.DESENVOLVEDOR, 1652);
-		System.out.println(Funcionario.DESENVOLVEDOR + " :\tR$ " + f.format(funcionario1.calcularSalario()) + " - c/ deduções: R$ " + f.format(funcionario1.calculoImposto()));
-		
-		//Funcionário2 recebe 25% a mais - esse adicional depende do cargo de cada um
-		Funcionario funcionario2 = new Funcionario(Funcionario.DBA, 2800);
-		System.out.println(Funcionario.DBA + " : \t\tR$ " + f.format(funcionario2.calcularSalario()) + " - c/ deduções: R$ " + f.format(funcionario2.calculoImposto()));
-		
-		//Funcionário3 recebe 35% a mais - esse adicional depende do cargo de cada um
-		Funcionario funcionario3 = new Funcionario(Funcionario.GERENTE, 3900);
-		System.out.println(Funcionario.GERENTE + " : \tR$ " + f.format(funcionario3.calcularSalario()) + " - c/ deduções: R$ "+ f.format(funcionario3.calculoImposto()));
+		System.out.println("Cargo\t\t Oct/Hex/Bin \t\tSalário");
 	
-		//E ainda tem o desconto do Imposto Renda pra quem recebbe acima de R$ 1900,00 
+		//Funcionário1 recebe um adicional de 15%
+		Funcionario funcionario1 = new Funcionario(Funcionario.DESENVOLVEDOR, "1652"); 
+		System.out.println(Funcionario.DESENVOLVEDOR + " :\tR$ " + funcionario1.calcularSalario() + "\t\t\tR$ " + Integer.parseInt(funcionario1.calcularSalario(), 8));
+		
+		//Funcionário2 recebe um adicional de 25%
+		Funcionario funcionario2 = new Funcionario(Funcionario.DBA, "2800");
+		System.out.println(Funcionario.DBA + " : \t\tR$ " + funcionario2.calcularSalario() + "\t\t\tR$ " + Integer.parseInt(funcionario2.calcularSalario(), 16) );
+		
+		//Funcionário3 recebe um adicional de 35%
+		Funcionario funcionario3 = new Funcionario(Funcionario.GERENTE, "3900");
+		System.out.println(Funcionario.GERENTE + " : \tR$ " + funcionario3.calcularSalario() + "\tR$ " + Integer.parseInt(funcionario3.calcularSalario(), 2) );
 	}
 
 }

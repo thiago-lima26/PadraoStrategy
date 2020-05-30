@@ -1,14 +1,12 @@
 package PadraoStrategy;
 
-import java.text.DecimalFormat;
-
 public class Funcionario {
 	static final String DESENVOLVEDOR = "Desenvolvedor";
 	static final String DBA = "DBA";
 	static final String GERENTE = "Gerente";
 	private String nome;
 	private String cargo;
-	private double salarioBase;
+	private String salarioBase;
 	private CalculoSalario tipo;
 
 	public String getNome() {
@@ -27,11 +25,11 @@ public class Funcionario {
 		this.cargo = cargo;
 	}
 
-	public double getSalarioBase() {
+	public String getSalarioBase() {
 		return salarioBase;
 	}
 
-	public void setSalarioBase(double salarioBase) {
+	public void setSalarioBase(String salarioBase) {
 		this.salarioBase = salarioBase;
 	}
 
@@ -43,7 +41,7 @@ public class Funcionario {
 		this.tipo = tipo;
 	}
 
-	public Funcionario(String cargo, double salarioBase) {
+	public Funcionario(String cargo, String salarioBase) {
 		this.salarioBase = salarioBase;
 		switch (cargo) {
 		case DESENVOLVEDOR:
@@ -63,21 +61,7 @@ public class Funcionario {
 		}
 	}
 	
-	public double calcularSalario() {
+	public String calcularSalario() {
 		return tipo.calculaSalario(this);
-	}
-	
-	public double calculoImposto() {
-		if(calcularSalario()>=1900 && calcularSalario()<=2800) {
-			this.salarioBase = calcularSalario() * 0.925;
-		}else if(calcularSalario()>2800 && calcularSalario()<=3700) {
-			this.salarioBase = calcularSalario() * 0.85;
-		} else if(calcularSalario()>3700 && calcularSalario()<=4600) {
-			this.salarioBase = calcularSalario() * 0.775;
-		}else if(calcularSalario()>4600) {
-			this.salarioBase = calcularSalario() * 0.725;
-		} else 
-			this.salarioBase = calcularSalario();
-		return this.salarioBase;
 	}
 }

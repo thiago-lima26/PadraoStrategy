@@ -3,8 +3,10 @@ package PadraoStrategy;
 public class DBA implements CalculoSalario {
 
 	@Override
-	public double calculaSalario(Funcionario funcionario) {
-        return funcionario.getSalarioBase() * 1.25;
+	public String calculaSalario(Funcionario funcionario) {
+		int sal = Integer.valueOf(funcionario.getSalarioBase());
+		String saltot = Integer.toHexString((int) (sal*1.25));
+		return saltot;
 	}
 
 }
